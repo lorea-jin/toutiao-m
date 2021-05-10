@@ -1,7 +1,18 @@
 import axios from 'axios'
 import store from '@/store'
+import JSONBig from 'json-bigint'
+
 const request = axios.create({
-  baseURL: 'http://toutiao-app.itheima.net/'
+  baseURL: 'http://toutiao-app.itheima.net/',
+  transformResponse: [
+    function(data) {
+      try {
+        return JSONBig.parse(data)
+      } catch (error) {
+        return data
+      }
+    }
+  ]
 })
 
 request.interceptors.request.use(

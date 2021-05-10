@@ -1,7 +1,8 @@
 <template>
   <!-- 此组件是文章list列表中每一个文章item -->
+  <!-- :to="'/article/' +article.art_id" -->
 
-  <van-cell class="article-item">
+  <van-cell class="article-item" :to="{name:'article',params:{articleId:article.art_id}}">
     <div slot="title" class="article-title van-multi-ellipsis--l2">{{article.title}}</div>
 
     <div slot="label">
@@ -44,7 +45,12 @@ export default {
     return {}
   },
   created() {},
-  methods: {},
+  methods: {
+    // 点击每个文章触发的函数--为了浏览文章
+    // clickItem() {
+    //   console.log()
+    // }
+  },
   mounted() {},
   watch: {},
   computed: {},

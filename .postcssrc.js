@@ -8,7 +8,8 @@ module.exports = {
       rootValue({ file }) {
         return file.indexOf('vant') !== -1 ? 37.5 : 75
       },
-      propList: ['*']
+      propList: ['*'],
+      exclude: 'github-markdown' // 配置不要转换的文件名不带后缀
     }
   }
 }
